@@ -6,7 +6,7 @@ access_token_url = "https://idp.comprobanteselectronicos.go.cr/auth/realms/rut-s
 
 data = {'client_id':'api-stag',#Test: 'api-stag' Production: 'api-prod'
         'username': "cpf-04-0209-0351@stag.comprobanteselectronicos.go.cr",
-        'password': "asdasdasdsadsadsadasd",
+        'password': "asdasdasdasd",
         'grant_type': "password", #always 'password'
         'client_secret': '',#always empty
         'scope':''#always empty
@@ -22,7 +22,6 @@ params_comprobantes = {'limit': 1,
 resp_comprobantes = requests.get(sandbox_api, params=params_comprobantes)
 print(json.dumps(resp_comprobantes.json(), indent=4, sort_keys=True))
 
-
 from oauthlib.oauth2 import LegacyApplicationClient
 from requests_oauthlib import OAuth2Session
 
@@ -30,4 +29,12 @@ oauth = OAuth2Session(client=LegacyApplicationClient(client_id=data['client_id']
 token = oauth.fetch_token(token_url=access_token_url,
         username=data['username'], password=data['password'], client_id=data['client_id'],
         client_secret='')
+print(json.dumps(token, indent=4, sort_keys=True))
+
+print(type(token))
+import time
+print (time.time())
+print(time.ctime(token['expires_at']))
+
+
 

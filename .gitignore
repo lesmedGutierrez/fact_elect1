@@ -35,7 +35,6 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
-.idea
 
 # Unit test / coverage reports
 htmlcov/
@@ -106,4 +105,4 @@ venv.bak/
 .mypy_cache/
 
 #idea
-.idea/*
+.idea
